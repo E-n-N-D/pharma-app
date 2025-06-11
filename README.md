@@ -63,6 +63,17 @@ A comprehensive web-based solution for managing medical inventory, tracking stoc
 - MongoDB
 - npm or yarn
 
+### Mongodb setup
+
+1. Create a database with name : test
+
+2. Create a collection with name: users
+
+3. Create a user with following fields:
+  a. username
+  b. password
+  c. isAdmin (true/false)
+
 ### Installation
 
 1. Clone the repository:
