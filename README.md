@@ -97,7 +97,7 @@ Backend:
 
 ```bash
 cd backend
-npm run dev
+npm start
 ```
 
 Frontend:
