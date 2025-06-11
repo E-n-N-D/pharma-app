@@ -1,0 +1,560 @@
+.stockContainer {
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.stockContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stockList {
+  margin-top: 2rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error {
+  background-color: #fff3f3;
+  color: #dc3545;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.noMedicines {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.medicinesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.medicineCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.medicineCard h3 {
+  color: #1a73e8;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.description {
+  color: #5f6368;
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.medicineDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  color: #5f6368;
+  font-size: 0.875rem;
+}
+
+.detail span:first-child {
+  font-weight: 500;
+}
+
+.cardActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.editButton,
+.deleteButton {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editButton {
+  background: #e8f0fe;
+  color: #1a73e8;
+  border: 1px solid #1a73e8;
+}
+
+.editButton:hover {
+  background: #1a73e8;
+  color: white;
+}
+
+.deleteButton {
+  background: #fce8e6;
+  color: #d93025;
+  border: 1px solid #d93025;
+}
+
+.deleteButton:hover {
+  background: #d93025;
+  color: white;
+}
+
+.floatingButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.floatingButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floatingButton span:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.addFormContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.formGroup input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.submitButton,
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.submitButton:hover {
+  background-color: #357abd;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.medicinesTableContainer {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.medicinesTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.medicinesTable th,
+.medicinesTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.medicinesTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.medicinesTable tr:hover {
+  background-color: #f8f9fa;
+}
+
+.tableActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  transition: transform 0.2s;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  transform: scale(1.1);
+}
+
+.deleteButton {
+  color: #dc3545;
+}
+.stockFilters {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.filterRow {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.dateFilter,
+.statusFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.dateFilter label,
+.statusFilter label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dateSelect,
+.statusSelect {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dateSelect:hover,
+.statusSelect:hover {
+  border-color: #4a90e2;
+}
+
+.dateSelect:focus,
+.statusSelect:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.statusSelect option {
+  padding: 0.5rem;
+}
+
+.statusSelect option[value="out-of-stock"] {
+  color: #e22d2d;
+}
+
+.statusSelect option[value="low-stock"] {
+  color: #f57c00;
+}
+
+.statusSelect option[value="optimal-stock"] {
+  color: #2e7d32;
+}
+
+.statusSelect option[value="overstock"] {
+  color: #1976d2;
+}
+
+.stockStatus {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.out-of-stock {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.low-stock {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.optimal-stock {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.overstock {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.statusFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.statusCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.statusCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.statusCheckbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.statusCheckbox span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Status-specific styles */
+.statusCheckbox.out-of-stock {
+  background-color: #ffd6dc;
+  color: #ff1919;
+}
+
+.statusCheckbox.low-stock {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.statusCheckbox.optimal-stock {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.statusCheckbox.overstock {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+/* Hover states */
+.statusCheckbox:hover {
+  filter: brightness(0.95);
+}
+
+/* Checked states */
+.statusCheckbox input[type="checkbox"]:checked + span {
+  font-weight: 600;
+}
+
+.statusCheckbox.out-of-stock input[type="checkbox"]:checked + span {
+  color: #b71c1c;
+}
+
+.statusCheckbox.low-stock input[type="checkbox"]:checked + span {
+  color: #e65100;
+}
+
+.statusCheckbox.optimal-stock input[type="checkbox"]:checked + span {
+  color: #1b5e20;
+}
+
+.statusCheckbox.overstock input[type="checkbox"]:checked + span {
+  color: #0d47a1;
+}
+
+/* Remove the old status select styles */
+.statusSelect,
+.statusSelect option {
+  display: none;
+}
+
+.suggestionContainer {
+  position: relative;
+  width: 100%;
+}
+
+.suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.suggestionsList li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestionsList li:hover {
+  background-color: #f5f5f5;
+}
+
+.suggestionsList li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.stockSelect {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stockSelect:hover {
+  border-color: #4a90e2;
+}
+
+.stockSelect:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.stockSelect option {
+  padding: 0.5rem;
+}
+
+.expiring {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.statusCheckbox.expiring {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.statusCheckbox.expiring input[type="checkbox"]:checked + span {
+  color: #b71c1c;
+}

@@ -1,0 +1,234 @@
+.dashboard {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.medicinesTableContainer {
+  width: 100%;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.medicinesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.medicinesTable th,
+.medicinesTable td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.medicinesTable th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.medicinesTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.statusSelect option {
+  padding: 0.5rem;
+}
+
+.statusSelect option[value="out-of-stock"] {
+  color: #d32f2f;
+}
+
+.statusSelect option[value="low-stock"] {
+  color: #f57c00;
+}
+
+.statusSelect option[value="optimal-stock"] {
+  color: #2e7d32;
+}
+
+.statusSelect option[value="overstock"] {
+  color: #1976d2;
+}
+
+.stockStatus {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.out-of-stock {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.low-stock {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.optimal-stock {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.overstock {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.dashboard h1 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.alertsContainer {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.alertSection {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alertSection h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.alertList {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  gap: 4rem;
+}
+
+.alertItem {
+  background: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease;
+}
+
+.alertItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alertItem h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.alertItem p {
+  color: #666;
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.alertItem.expiring {
+  border-left: 4px solid #d32f2f;
+  background-color: #ffebee;
+}
+
+.alertItem.out-of-stock {
+  border-left: 4px solid #d32f2f;
+  color: #d32f2f;
+  background-color: #ffebee;
+}
+
+.alertItem.low-stock {
+  border-left: 4px solid #f57c00;
+  color: #f57c00;
+  background-color: #fff3e0;
+}
+
+.alertItem.optimal-stock {
+  border-left: 4px solid #4caf50;
+  color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.alertItem.overstock {
+  border-left: 4px solid #2196f3;
+  color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.noAlerts {
+  color: #666;
+  text-align: center;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  grid-column: 1 / -1;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .alertsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .alertList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tableContainer {
+  max-height: 400px; /* Height for approximately 8 rows */
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
